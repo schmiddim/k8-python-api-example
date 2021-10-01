@@ -1,0 +1,25 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: fetch-datetime-from-web
+  namespace: python
+spec:
+  jobTemplate:
+    metadata:
+      name: fetch-datetime-from-web
+    spec:
+      template:
+        spec:
+          containers:
+          - image: localhost:32000/python3starter:v6.0
+            name: fetch-datetime-from-web
+            resources: {}
+            command:
+              - python3
+              - cron.py
+          restartPolicy: OnFailure
+  schedule: '* * * * *'
+
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 5

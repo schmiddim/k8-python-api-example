@@ -1,0 +1,4 @@
+venv
+kubernetes
+__pycache__
+.env
