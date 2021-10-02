@@ -12,7 +12,7 @@ spec:
       template:
         spec:
           containers:
-          - image: localhost:32000/python3starter:v6.0
+          - image: pythonStarter
             name: fetch-datetime-from-web
             resources: {}
             command:

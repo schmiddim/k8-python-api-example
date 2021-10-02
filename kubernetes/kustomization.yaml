@@ -12,3 +12,9 @@ resources:
   - ./core/service.yaml
   - ./core/ingress.yaml
   - ./core/cronjobs.yaml
+
+
+images:
+  - name: pythonStarter
+    newName: localhost:32000/python3starter
+    newTag: v6.0

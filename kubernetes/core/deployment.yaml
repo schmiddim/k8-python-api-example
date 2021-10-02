@@ -28,7 +28,7 @@ items:
           app: pythonstart
       spec:
         containers:
-        - image: localhost:32000/python3starter:v6.0
+        - image: pythonStarter
           readinessProbe:
             httpGet:
               path: /health
