@@ -1,7 +1,19 @@
-import requests as r 
-import json 
+import requests as r
+import os
+from kubernetes import client, config
+from modules.kubernetes_wrapper import create_or_update_config_map
 
+is_in_cluster = os.getenv("IN_CLUSTER", "0")
+print(is_in_cluster)
+if is_in_cluster == "1":
+    config.load_incluster_config()
+    current_namespace = open("/var/run/secrets/kubernetes.io/serviceaccount/namespace").read()
+else:
+    config.load_kube_config()
+    current_namespace = 'python'
+coreApi = client.CoreV1Api()
 
-output='/tmp/foo.json'
-with open(output, 'w') as f :
-    f.write(r.get("http://worldclockapi.com/api/json/cet/now").text)
+time = r.get("http://worldtimeapi.org/api/timezone/America/Argentina/Salta").text
+
+payload = {'time': time}
+(create_or_update_config_map(current_namespace, "worldtime", payload, coreApi))

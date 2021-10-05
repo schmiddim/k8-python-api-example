@@ -1,8 +1,10 @@
+import json
+import os
+
 from flask import Flask, make_response, jsonify
 from flask.logging import logging
-from flask.scaffold import F
+
 app = Flask(__name__)
-import yaml
 
 app.logger.setLevel(logging.INFO)
 
@@ -15,29 +17,12 @@ class NoHealth(logging.Filter):
 logging.getLogger("werkzeug").addFilter(NoHealth())
 
 
-@app.route('/config')
-def config_test():
-    with open("example.yaml", "r") as stream:
-        try:
-            print(yaml.safe_load(stream))
-        except yaml.YAMLError as exc:
-            print(exc)
-            return make_response(jsonify({"ok": False}), 200)
-
-    return make_response(jsonify({"ok": True}), 200)
-
-
 @app.route("/")
-def hello_world():
-    # @ todo fucking catch exceptions
-    # foo ={}
-    # try:
-    #     return foo.get('asshir')
-    # except Exception:
-    #     print("fuck")
-
-    #     return "asdfs"
-    return "<p>Hello, World!</p>"
+def hi():
+    path_to_time_obj = os.getenv("PATH_TO_TIME_DATA")
+    with open(path_to_time_obj) as fp:
+        data = json.load(fp)
+        return make_response(jsonify(data), 200)
 
 
 @app.route("/health")
