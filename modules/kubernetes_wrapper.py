@@ -1,5 +1,4 @@
 from kubernetes import client
-import json
 
 
 def read_config_map(namespace: str, config_name: str, v1: client.CoreV1Api):

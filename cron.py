@@ -1,5 +1,5 @@
 import requests as r
-import os
+import os,json 
 from kubernetes import client, config
 from modules.kubernetes_wrapper import create_or_update_config_map
 
@@ -15,5 +15,7 @@ coreApi = client.CoreV1Api()
 
 time = r.get("http://worldtimeapi.org/api/timezone/America/Argentina/Salta").text
 
-payload = {'time': time}
+
+payload = {'data':time}
+print(payload)
 (create_or_update_config_map(current_namespace, "worldtime", payload, coreApi))

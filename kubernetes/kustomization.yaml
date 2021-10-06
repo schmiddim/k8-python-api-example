@@ -16,5 +16,5 @@ resources:
 
 images:
   - name: pythonStarter
-    newName: localhost:32000/python3starter
-    newTag: v11.0
+    newName: localhost:32000/python3k8api
+    newTag: v1.0

@@ -45,7 +45,7 @@ items:
             readOnly: true
           env:
             - name: PATH_TO_TIME_DATA
-              value: "/tmp/timezone/time"
+              value: "/tmp/timezone/data"
 
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
