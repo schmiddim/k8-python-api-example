@@ -36,3 +36,8 @@ jobs:
         pytest
       env:
         PYTHONPATH: .
+    - name: Code Coverage
+      run: |
+        pytest --cov-report term-missing --cov=.  .
+      env:
+        PYTHONPATH: .
