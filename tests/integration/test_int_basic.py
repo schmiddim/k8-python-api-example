@@ -1,8 +1,3 @@
-import os
-import tempfile
-
-import pytest
-from flask import Flask
 from app import app as flask_app
 
 

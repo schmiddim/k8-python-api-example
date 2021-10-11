@@ -1,8 +1,9 @@
-import requests
-from modules.functions import get_time_from_web
-from pytest_httpserver import HTTPServer
 import re
+
 import pytest
+from pytest_httpserver import HTTPServer
+
+from modules.functions import get_time_from_web
 
 
 def test_positive_endpoint(httpserver: HTTPServer):
@@ -16,7 +17,6 @@ def test_positive_endpoint(httpserver: HTTPServer):
 
 
 def test_faulty_endpoints(httpserver: HTTPServer):
-
     # response data from http://worldclockapi.com/api/json/utc/now
     response_data = {'$id': '1', 'currentDateTime': '2021-10-11T16:47Z', 'utcOffset': '00:00:00',
                      'isDayLightSavingsTime': False, 'dayOfTheWeek': 'Monday', 'timeZoneName': 'UTC',
