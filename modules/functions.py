@@ -10,5 +10,5 @@ def get_time_from_web(url1, url2):
         try:
             b = requests.get(url2).json()
             return b
-        except Exception as e2:
+        except Exception:
             raise Exception("no valid responses")
