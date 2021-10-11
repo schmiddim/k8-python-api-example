@@ -1,5 +1,5 @@
 [![Python application](https://github.com/schmiddim/k8-python-api-example/actions/workflows/python-app.yaml/badge.svg)](https://github.com/schmiddim/k8-python-api-example/actions/workflows/python-app.yaml)
-
+[![codecov](https://codecov.io/gh/schmiddim/k8-python-api-example/branch/master/graph/badge.svg?token=LA96MMN4EI)](https://codecov.io/gh/schmiddim/k8-python-api-example)
 ## Write and Consume Kubernetes Configmaps
 
 ## Setup
